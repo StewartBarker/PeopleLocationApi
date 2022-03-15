@@ -1,0 +1,41 @@
+{
+  "name": "peoplelocationapi",
+  "version": "1.0.0",
+  "description": "This api is used to return people who are listed as either living in a particular city, or whose current coordinates are within x miles of a city. It uses the BPDTS api to get the list of users and locations.",
+  "main": "app.js",
+  "scripts": {
+    "lint": "eslint .",
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StewartBarker/PeopleLocationApi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StewartBarker/PeopleLocationApi/issues"
+  },
+  "homepage": "https://github.com/StewartBarker/PeopleLocationApi#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  },
+  "devDependencies": {
+    "eslint": "^8.11.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4"
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "ignore": [
+      "node_modules/**/node_modules"
+    ],
+    "delay": "2500",
+    "env": {
+      "NODE_ENV": "development",
+      "PORT": "4000"
+    }
+  }
+}

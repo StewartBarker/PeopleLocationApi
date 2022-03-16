@@ -1,24 +1,14 @@
-function sourceLocationIsWithinXMilesOftargetLocation(
-  sourceLocationLatitude,
-  sourceLocationLongitude,
-  miles,
-  targetLocationLatitude,
-  targetLocationLongitude,
-) {
-  return true;
-}
+const distanceCalculator = require('../utils/distanceCalculator');
 
 function getUsersWithinXMileOfLocation(users, miles, location) {
   const usersWithinLocation = [];
   for (let i = 0; i < users.length; i += 1) {
-    if (sourceLocationIsWithinXMilesOftargetLocation(
+    if (distanceCalculator.calculateDistanceUsingHaversine(
       users[i].latitude,
       users[i].longitude,
-      miles,
       location.latitude,
       location.longitude,
-    )
-    ) {
+    ) < miles) {
       usersWithinLocation.push(users[i]);
     }
   }

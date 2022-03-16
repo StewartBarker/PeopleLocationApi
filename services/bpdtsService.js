@@ -1,21 +1,24 @@
-const https = require('https');
+const axios = require('axios');
 
-const url = 'https://bpdts-test-app.herokuapp.com/';
+async function getUsers() {
+  try {
+    const res = await axios.get('https://bpdts-test-app.herokuapp.com/users');
+    return res.data;
+  } catch (error) {
+    return error.response.status;
+  }
+}
 
-module.exports = () => new Promise((resolve, reject) => {
-  https.get(`${url}/users`, (response) => {
-    try {
-      let body = '';
+async function getUsersInCity(city) {
+  try {
+    const res = await axios.get(`https://bpdts-test-app.herokuapp.com/city/${city}/users`);
+    return res.data;
+  } catch (error) {
+    return error.response.status;
+  }
+}
 
-      response.on('data', (data) => {
-        body += data.toString();
-      });
-      response.on('end', () => {
-        const { id, email } = JSON.parse(body);
-        resolve({ lat: id, lon: email });
-      });
-    } catch (error) {
-      reject(error);
-    }
-  });
-});
+module.exports = {
+  getUsers,
+  getUsersInCity,
+};

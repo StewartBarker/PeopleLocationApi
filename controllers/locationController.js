@@ -1,9 +1,17 @@
-const axios = require('axios');
+const bpdtsService = require('../services/bpdtsService');
+const geoLocationService = require('../services/geoLocationService');
 
 module.exports = {
-  index: (req, res) => {
-    axios.get('https://bpdts-test-app.herokuapp.com/users').then((resp) => {
-      res.json(resp.data);
-    });
+  index: async (req, res) => {
+    const users = await bpdtsService.getUsers();
+
+    const london = { latitude: 50, longitude: 30 };
+
+    const usersWithinLocation = geoLocationService.getUsersWithinXMileOfLocation(users, 50, london);
+
+    console.log(usersWithinLocation);
+    const usersInCity = await bpdtsService.getUsersInCity('London');
+    console.log(usersInCity);
+    return res.send(usersInCity);
   },
 };

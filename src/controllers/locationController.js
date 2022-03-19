@@ -15,6 +15,6 @@ module.exports = {
     console.log(usersInLondon);
     const allUsersWithin50MilesOfLondon = usersWithin50MiesOfLondon.concat(usersInLondon);
 
-    return res.send(allUsersWithin50MilesOfLondon);
+    return res.status(200).send(allUsersWithin50MilesOfLondon);
   },
 };

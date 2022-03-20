@@ -1,0 +1,35 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Location API",
+        "description": "Use to return all users in London or within 50 miles of London",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:4000",
+    "basePath": "/api/v1",
+    "paths": {
+        "/getUsersLivingInOrWithin50MilesOfLondon": {
+            "get": {
+                "summary": "Get all users living in London or within 50 miles of London",
+                "responses": {
+                    "200": {
+                        "description": "OK"                       
+                    }
+                }
+            }
+        }
+    },
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ]
+}

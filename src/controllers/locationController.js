@@ -12,8 +12,9 @@ module.exports = {
 
     const usersInLondon = await bpdtsService.getUsersInCity('London');
     
-    const allUsersWithin50MilesOfLondon = usersWithin50MiesOfLondon.concat(usersInLondon);
+    const allDistinctUsersInLondonOrWithin50MilesOfLondon = [...new Set([...usersWithin50MiesOfLondon, ...usersInLondon])];
 
-    return res.status(200).send(allUsersWithin50MilesOfLondon);
+    res.status(200);
+    return res.send(allDistinctUsersInLondonOrWithin50MilesOfLondon);
   },
 };

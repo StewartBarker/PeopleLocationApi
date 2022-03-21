@@ -7,7 +7,7 @@ This api is used to return people who are listed as either living in London, or 
 
 ``git clone git@github.com:StewartBarker/PeopleLocationApi.git``
 
-``cd src``
+``cd PeopleLocationApi/src``
 
 ``npm install``
 
